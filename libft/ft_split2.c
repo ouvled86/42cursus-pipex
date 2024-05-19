@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 13:12:59 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/19 12:13:48 by ouel-bou         ###   ########.fr       */
+/*   Created: 2024/05/19 14:17:39 by ouel-bou          #+#    #+#             */
+/*   Updated: 2024/05/19 14:19:52 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,6 @@ static int	check(char const *str, char c)
 	return (occurances);
 }
 
-char	**freemem(char **res)
-{
-	int	i;
-
-	i = 0;
-	if (res)
-	{
-		while (res[i])
-			free(res[i++]);
-		free(res);
-	}
-	return (NULL);
-}
-
 static char	*extract(int *i, char const *s, char c)
 {
 	int		ressize;
@@ -59,7 +45,7 @@ static char	*extract(int *i, char const *s, char c)
 	while (s[*i] && s[*i] != c)
 		(*i)++;
 	ressize = *i - tpos;
-	res = (char *)malloc((ressize + 2) * sizeof(char));
+	res = (char *)malloc((ressize + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
 	while (tpos + j < *i)
@@ -67,12 +53,11 @@ static char	*extract(int *i, char const *s, char c)
 		res[j] = s[tpos + j];
 		j++;
 	}
-	res[j] = '/';
-	res[j + 1] = '\0';
+	res[j] = '\0';
 	return (res);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split2(char const *s, char c)
 {
 	int		i;
 	int		j;
