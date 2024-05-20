@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 14:17:39 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/19 14:19:52 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:56:32 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,30 @@ static char	*extract(int *i, char const *s, char c)
 	int		ressize;
 	int		tpos;
 	int		j;
+	int		f;
 	char	*res;
 
 	j = 0;
+	f = 0;
 	while (s[*i] && s[*i] == c)
 		(*i)++;
-	tpos = *i;
-	while (s[*i] && s[*i] != c)
+	if (s[*i] == 39)
+	{
+		f = 1;
 		(*i)++;
+	}
+	tpos = *i;
+	if (f == 0)
+	{
+		while (s[*i] && s[*i] != c)
+			(*i)++;
+	}
+	else
+	{
+		while (s[*i] && s[*i] != 39)
+			(*i)++;
+		(*i)++;
+	}
 	ressize = *i - tpos;
 	res = (char *)malloc((ressize + 1) * sizeof(char));
 	if (!res)

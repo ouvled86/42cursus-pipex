@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:22:13 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/20 13:22:22 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:44:27 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ void	exec_one(int *pfd, t_files fds, t_cmds *cmds)
 
 void	exec_two(int *pfd, t_files fds, t_cmds *cmds)
 {
+	int i = -1;
+	while (cmds->fcmd2[++i])
+		ft_printf("%s\n", cmds->fcmd2[i]);
 	if (close(fds.fd1) < 0)
 	{
 		perror("pipex");

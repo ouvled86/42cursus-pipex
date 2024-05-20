@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:24:03 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/20 13:55:05 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/20 16:35:58 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_cmds	*check_cmds(char **envp, char *cmd1, char *cmd2)
 	ret = (t_cmds *)malloc(sizeof(t_cmds));
 	if (!ret)
 		exit(9);
-	path_list = extract_paths(envp[2]);
+	path_list = extract_paths(envp[4]);
 	ret->fcmd1 = ft_split2(cmd1, ' ');
 	ret->fcmd2 = ft_split2(cmd2, ' ');
 	ret->cmd1 = find_path(path_list, ret->fcmd1[0]);
