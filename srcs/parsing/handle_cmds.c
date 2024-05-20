@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:24:03 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/20 13:49:34 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/20 13:55:05 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ t_cmds	*check_cmds(char **envp, char *cmd1, char *cmd2)
 	path_list = extract_paths(envp[2]);
 	ret->fcmd1 = ft_split2(cmd1, ' ');
 	ret->fcmd2 = ft_split2(cmd2, ' ');
-	ret->cmd1 = exe_cmd(path_list, ret->fcmd1[0]);
+	ret->cmd1 = find_path(path_list, ret->fcmd1[0]);
 	if (ret->cmd1 == NULL)
 	{
 		perror("pipex");
 		exit (14);
 	}
-	ret->cmd2 = exe_cmd(path_list, ret->fcmd2[0]);
+	ret->cmd2 = find_path(path_list, ret->fcmd2[0]);
 	if (ret->cmd2 == NULL)
 	{
 		free(ret->cmd1);
@@ -39,7 +39,7 @@ t_cmds	*check_cmds(char **envp, char *cmd1, char *cmd2)
 	return (ret);
 }
 
-char	*exe_cmd(char **pl, char *cmd)
+char	*find_path(char **pl, char *cmd)
 {
 	int		i;
 	char	*full_cmd;

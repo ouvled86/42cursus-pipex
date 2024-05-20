@@ -17,19 +17,24 @@ LIBFT = libft/libftprintf.a
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
+	@echo Compiling pipex sources..
 	@cc -g $(CFLAGS) $^ -o $@
 
 $(LIBFT):
+	@echo Archiving libft..
 	@make -s -C libft/
 
 %.o: %.c includes/pipex.h
-	cc $(CFLAGS) -g -c $< -o $@
+	@cc $(CFLAGS) -g -c $< -o $@
 
 clean:
+
+	@echo Cleaning object files..
 	@rm -f $(OBJS)
 	@make fclean -s -C libft/
 
 fclean:
+	@echo Cleaning object files and executable..
 	@rm -f $(OBJS) $(NAME)
 	@make fclean -s -C libft/
 
