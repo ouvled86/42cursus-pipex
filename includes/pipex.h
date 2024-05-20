@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:51:30 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/19 15:48:09 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/20 13:27:05 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,27 @@ typedef struct s_cmds
 	char	**fcmd2;
 }		t_cmds;
 
+void	close_all(int *pipe, t_files files);
+void	free_cmds(t_cmds *cmds);
+
+void	exec_one(int *pfd, t_files fds, t_cmds *cmds);
+void	exec_two(int *pfd, t_files fds, t_cmds *cmds);
+
+void	check_args(int ac);
+char	**extract_paths(char *s);
+t_cmds	*check_cmds(char **envp, char *cmd1, char *cmd2);
+char	*exe_cmd(char **pl, char *cmd);
+
+int		safe_fork(void);
+t_files	safe_open(char *f1, char *f2);
+
+
 #endif
 
 // ERROR CODES
 // MALLOC ERR = 9
 // ACCESS ERR = 14
+// CLOSE ERR = 30
 // OPEN ERR = 33
 // PIPE ERR = 43
 // DUP ERR = 50

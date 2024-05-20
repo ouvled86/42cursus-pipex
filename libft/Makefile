@@ -67,7 +67,7 @@ bonus: $(OBJ_BONUS)
 	ar rcs $(NAME) $(OBJ_BONUS)
 
 %.o : %.c libft.h
-	cc $(CFLAGS) -c $< -o $@
+	cc -g $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ) $(PRF_OBJ) $(OBJ_BONUS)
