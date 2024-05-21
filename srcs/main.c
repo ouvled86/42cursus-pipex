@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:51:19 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/20 13:36:50 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:16:38 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,5 @@ int	main(int ac, char **av, char **envp)
 		exec_two(pfd, fds, cmds);
 	close_all(pfd, fds);
 	free_cmds(cmds);
+	free(cmds);
 }
