@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:11:28 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/19 14:18:46 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/21 13:57:02 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ int		ft_putnbr(int n);
 int		ft_putuint(unsigned int n);
 char	*base(int c);
 int		reccursive(int n, int count, int tmp);
+char	**new_split(char const *s, int c);
 
 #endif

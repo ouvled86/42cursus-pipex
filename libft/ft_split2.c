@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 14:17:39 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/20 16:56:32 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/21 12:11:57 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@ static int	check(char const *str, char c)
 {
 	int	occurances;
 	int	i;
+	int	qc;
+	int	f;
 
 	occurances = 0;
+	qc = 0;
+	f = 0;
 	i = 0;
 	while (str[i])
 	{
@@ -25,10 +29,13 @@ static int	check(char const *str, char c)
 			i++;
 		if (str[i])
 			occurances++;
+		if (str[i] == 39 || str[i] == 34)
+			qc++;
 		while (str[i] && str[i] != c)
 			i++;
 	}
-	return (occurances);
+	i = qc / 2;
+	return (occurances - i);
 }
 
 static char	*extract(int *i, char const *s, char c)
@@ -54,12 +61,14 @@ static char	*extract(int *i, char const *s, char c)
 		while (s[*i] && s[*i] != c)
 			(*i)++;
 	}
-	else
+	if (f == 1)
 	{
 		while (s[*i] && s[*i] != 39)
 			(*i)++;
-		(*i)++;
+		ft_printf("i  is: %d\n", *i);
+		f = 0;
 	}
+	ft_printf("%d\n", *i);
 	ressize = *i - tpos;
 	res = (char *)malloc((ressize + 1) * sizeof(char));
 	if (!res)
@@ -70,6 +79,7 @@ static char	*extract(int *i, char const *s, char c)
 		j++;
 	}
 	res[j] = '\0';
+	ft_printf("%s\n", res);
 	return (res);
 }
 
@@ -84,6 +94,7 @@ char	**ft_split2(char const *s, char c)
 	if (!s)
 		return (NULL);
 	occurances = check(s, c);
+	ft_printf("occurs: %d\n", occurances);
 	result = (char **)malloc ((occurances + 1) * sizeof (char *));
 	if (!result)
 		return (NULL);

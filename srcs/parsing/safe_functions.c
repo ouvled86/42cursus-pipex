@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:20:34 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/20 13:21:17 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:06:49 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,23 @@ t_files	safe_open(char *f1, char *f2)
 		exit(33);
 	}
 	return (ret);
+}
+
+void	safe_close(int fd)
+{
+	if (close(fd) < 0)
+	{
+		perror("pipex");
+		exit(30);
+	}
+}
+
+
+void	safe_dup2(int newfd, int oldfd)
+{
+	if (dup2(newfd, oldfd) < 0)
+	{
+		perror("pipex");
+		exit(50);
+	}
 }

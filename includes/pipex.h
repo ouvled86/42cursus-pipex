@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:51:30 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/20 13:55:05 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:07:10 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ char	*find_path(char **pl, char *cmd);
 
 int		safe_fork(void);
 t_files	safe_open(char *f1, char *f2);
-
+void	safe_close(int fd);
+void	safe_dup2(int newfd, int oldfd);
 
 #endif
 
