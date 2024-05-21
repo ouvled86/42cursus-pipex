@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:20:34 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/21 14:09:58 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:39:32 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ t_files	safe_open(char *f1, char *f2)
 {
 	t_files	ret;
 
-	ret.fd1 = open(f1, O_RDONLY);
+	ret.fd1 = open(f1, O_RDONLY, 0777);
 	if (ret.fd1 < 0)
 	{
 		perror("pipex");
 		exit(33);
 	}
-	ret.fd2 = open(f2, O_CREAT | O_WRONLY);
+	ret.fd2 = open(f2, O_CREAT | O_WRONLY, 0777);
 	if (ret.fd2 < 0)
 	{
 		close(ret.fd1);

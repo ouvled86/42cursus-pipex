@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:51:30 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/21 14:07:10 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/21 16:52:09 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ typedef struct s_cmds
 void	close_all(int *pipe, t_files files);
 void	free_cmds(t_cmds *cmds);
 
-void	exec_one(int *pfd, t_files fds, t_cmds *cmds);
-void	exec_two(int *pfd, t_files fds, t_cmds *cmds);
+void	exec_one(int *pfd, t_files fds, t_cmds *cmds, char **envp);
+void	exec_two(int *pfd, t_files fds, t_cmds *cmds, char **envp);
 
 void	check_args(int ac);
 char	**extract_paths(char *s);
