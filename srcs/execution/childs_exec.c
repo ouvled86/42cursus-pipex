@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:22:13 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/21 14:08:48 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:14:42 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,12 @@
 
 void	exec_one(int *pfd, t_files fds, t_cmds *cmds)
 {
-	if (close(fds.fd2) < 0)
-	{
-		perror("pipex");
-		exit(30);
-	}
-	if (close(pfd[0]) < 0)
-	{
-		perror("pipex");
-		exit(30);
-	}
+	safe_close(fds.fd2);
+	safe_close(pfd[0]);
 	safe_dup2(fds.fd1, 0);
 	safe_dup2(pfd[1], 1);
-	if (close(fds.fd1) < 0)
-	{
-		perror("pipex");
-		exit(30);
-	}
-	if (close(pfd[1]) < 0)
-	{
-		perror("pipex");
-		exit(30);
-	}
+	safe_close(fds.fd1);
+	safe_close(pfd[1]);
 	execve(cmds->cmd1, cmds->fcmd1, NULL);
 }
 

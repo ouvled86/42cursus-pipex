@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:20:34 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/21 14:06:49 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:09:58 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	safe_close(int fd)
 		exit(30);
 	}
 }
-
 
 void	safe_dup2(int newfd, int oldfd)
 {
