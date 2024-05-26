@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newsplit.c                                         :+:      :+:    :+:   */
+/*   ft_newsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:13:25 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/21 14:01:14 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/26 13:11:02 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	return_len(char const *s, int *i, int *j, int c)
 {
 	static int	f;
 
-	if (f == 1 || f == 2)
+	if ((f == 1 || f == 2) && *i != 0)
 	{
 		(*i)++;
 		f = 0;
@@ -90,9 +90,6 @@ void	return_len(char const *s, int *i, int *j, int c)
 		(*j)++;
 }
 
-	// ft_printf("i is: %d\n", *i);
-	// ft_printf("j is: %d\n", *j);
-	// ft_printf("s_count: %d | %s\n", s_count, ret[k]);
 void	extract_strings(char **ret, char const *s, int c, int s_count)
 {
 	int		i;

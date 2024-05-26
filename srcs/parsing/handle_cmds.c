@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:24:03 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/21 16:50:09 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/26 13:27:50 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,11 @@ t_cmds	*check_cmds(char **envp, char *cmd1, char *cmd2)
 	ret->fcmd1 = new_split(cmd1, ' ');
 	ret->fcmd2 = new_split(cmd2, ' ');
 	ret->cmd1 = find_path(path_list, ret->fcmd1[0]);
-	if (ret->cmd1 == NULL)
-	{
-		free(ret);
-		exit (14);
-	}
 	ret->cmd2 = find_path(path_list, ret->fcmd2[0]);
 	if (ret->cmd2 == NULL)
 	{
-		free(ret);
-		free(ret->cmd1);
+		if (ret->cmd1)
+			free(ret->cmd1);
 		exit (14);
 	}
 	path_list = freemem(path_list);

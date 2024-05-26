@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:51:30 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/21 16:52:09 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/26 14:42:55 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_cmds
 	char	*cmd2;
 	char	**fcmd1;
 	char	**fcmd2;
-}		t_cmds;
+}			t_cmds;
 
 void	close_all(int *pipe, t_files files);
 void	free_cmds(t_cmds *cmds);
