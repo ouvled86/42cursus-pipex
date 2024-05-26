@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 13:20:34 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/26 11:27:34 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/26 16:55:20 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	safe_fork(void)
 
 	pid = fork();
 	if (pid < 0)
-		return (-86);
+		exit(-86);
 	return (pid);
 }
 

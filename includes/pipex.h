@@ -6,7 +6,7 @@
 /*   By: ouel-bou <ouel-bou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:51:30 by ouel-bou          #+#    #+#             */
-/*   Updated: 2024/05/26 14:42:55 by ouel-bou         ###   ########.fr       */
+/*   Updated: 2024/05/26 16:53:47 by ouel-bou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	safe_dup2(int newfd, int oldfd);
 #endif
 
 // ERROR CODES
+// FORK ERR = -86
 // MALLOC ERR = 9
 // ACCESS ERR = 14
 // CLOSE ERR = 30
