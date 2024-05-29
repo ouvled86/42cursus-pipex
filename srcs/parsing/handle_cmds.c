@@ -16,11 +16,15 @@ t_cmds	*check_cmds(char **envp, char *cmd1, char *cmd2)
 {
 	t_cmds	*ret;
 	char	**path_list;
+	int		i;
 
 	ret = (t_cmds *)malloc(sizeof(t_cmds));
+	i = 0;
 	if (!ret)
 		exit(9);
-	path_list = extract_paths(envp[4]);
+	while (envp[i] && ft_strncmp(envp[i], "PATH", 4))
+		i++;
+	path_list = extract_paths(envp[i]);
 	ret->fcmd1 = new_split(cmd1, ' ');
 	ret->fcmd2 = new_split(cmd2, ' ');
 	ret->cmd1 = find_path(path_list, ret->fcmd1[0]);

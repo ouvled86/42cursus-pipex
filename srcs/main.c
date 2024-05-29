@@ -38,5 +38,4 @@ int	main(int ac, char **av, char **envp)
 	waitpid(-1, NULL, 0);
 	close_all(pfd, fds);
 	free_cmds(cmds);
-	free(cmds);
 }

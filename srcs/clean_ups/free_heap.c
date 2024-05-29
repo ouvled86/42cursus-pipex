@@ -14,13 +14,8 @@
 
 void	free_cmds(t_cmds *cmds)
 {
-	if (cmds->cmd1)
-		free(cmds->cmd1);
-	cmds->cmd1 = NULL;
-	if (cmds->cmd2)
-		free(cmds->cmd2);
-	cmds->cmd2 = NULL;
-	freemem(cmds->fcmd1);
-	freemem(cmds->fcmd2);
+	cmds->fcmd2 = freemem(cmds->fcmd1);
+	cmds->fcmd2 = freemem(cmds->fcmd2);
+	free(cmds);
 	cmds = NULL;
 }
